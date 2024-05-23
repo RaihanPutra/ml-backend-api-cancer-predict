@@ -13,7 +13,7 @@ async function predictClassification(model, image) {
         const score = await prediction.data();
         const confidenceScore = Math.max(...score) * 100;
     
-        const classes = ['Non-Cancer', 'Cancer'];
+        const classes = ['Non-cancer', 'Cancer'];
      
         const classResult = tf.argMax(prediction, 1).dataSync()[0];
         let label = classes[classResult];
@@ -26,7 +26,7 @@ async function predictClassification(model, image) {
         }
         
         else {
-            label === 'Non-Cancer'
+            label === 'Non-cancer'
             suggestion = "Tidak terdeteksi Cancer, tetap jaga kesehatan!"
         }
     
